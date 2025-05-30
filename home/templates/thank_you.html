@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thank You</title>
+<style>
+  /* Fonts & layout */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:rgb(122, 194, 142); /* light green background */
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2f4f2f; /* dark green text */
+    animation: fadeInBg 1.5s ease forwards;
+  }
+
+  .container {
+    background: #c7e9c0; /* lighter green card */
+    padding: 40px 60px;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(46, 125, 50, 0.3);
+    text-align: center;
+    max-width: 400px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards 0.3s;
+  }
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #1b4d1b; /* darkest green */
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 35px;
+    color: #3a6b3a;
+  }
+
+  a {
+    display: inline-block;
+    background: linear-gradient(45deg, #4caf50, #087f23); /* bright to dark green gradient */
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 128, 0, 0.4);
+    transition: background 0.4s ease, transform 0.3s ease;
+  }
+
+  a:hover {
+    background: linear-gradient(45deg, #087f23,rgb(69, 187, 73));
+    transform: scale(1.05);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInBg {
+    from {
+      background: #ffffff;
+    }
+    to {
+      background: #e6f4ea;
+    }
+  }
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17120889442"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17120889442');
+</script>
+
+
+</head>
+<body>
+  <div class="container">
+    <h1>Thank You!</h1>
+    <p>Your enquiry has been received successfully.<br>We will get back to you soon.</p>
+    <a href="/">Back to Home</a>
+  </div>
+
+<script>
+window.addEventListener('load', function() {
+if(window.location.href.includes('/thank-you/')){
+gtag('event', 'conversion', {
+      'send_to': 'AW-17120889442/gSutCL-HkdAaEOKU8OM_'});
+  }
+if(window.location.pathname == '/'){
+gtag('event', 'conversion', {
+      'send_to': 'AW-17120889442/cilvCJrgkNAaEOKU8OM_'});
+  }
+  })
+</script>
+
+</body>
+</html>
