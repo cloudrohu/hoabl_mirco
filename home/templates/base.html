@@ -264,33 +264,43 @@ display: block;
             </div>
             <div class="form-section p-3">
                 <h2 class="pb-2">Pre-Register here for Best Offers</h2>
-                <form class="text-center" name="Pre-Register-sidemodal" action="/submit-form/" method="post">
-                    {% csrf_token %}
-                    <div class="form-group mb-3">
-                        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Your Name here..." name="name" required>
-                        <span class="error">Name field is required</span>
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="number" id="mobile" class="form-control" required placeholder="Phone Number" name="mobile" oninput="limitDigits(this, 10)">
-                        <span class="error">Mobile field is required</span>
-                    </div>
-                    <div class="form-group mb-3">
-                        <input type="email" id="email" class="form-control" required placeholder="Email" name="email">
-                        <span class="error">Email field is required</span>
-                    </div>
-                    <div>
-                        <input type="hidden" name="form_name" id="form_name2" class="form-control form_name" value="Pre-Register">
-                        <input type="hidden" id="website_url2" class="website_url" name="website_url">
-                    </div>
-                    <div class="form-group acceptance mb-3" style="font-size: 10px;"><label class="form-check-label text-start">
-							<input type="checkbox" checked class="form-check-input" required>
-							<span class="text on-rera">I Consent to The Processing of Provided Data According To <a href="{% url "privacy-policy" %}" style="color:#007bff"> Privacy Policy | </a> <a href="terms-conditions.html" style="color:#007bff;"> Terms &amp; Conditions</a>, I Authorize Prop Solutions 4 U Pvt. Ltd. and its representatives to Call, SMS, Email or WhatsApp Me About Its Products and Offers. This Consent Overrides Any Registration For DNC/NDNC. </span>
-							<span class="text non-rera">Please be informed that this website is not intended to facilitate any sales transactions. I understand and acknowledge that the project I am interested in hasn't yet secured RERA clearance. The primary purpose of this website is to generate interest and gather information. By providing my data, I consent to its use in accordance with the <a href="Privacy-Policy.html" style="color:#007bff"> Privacy Policy | </a> <a href="terms-conditions.html" style="color:#007bff;"> Terms &amp; Conditions</a></span>
-						</label>
-                    </div>
-                    <button id="right-panel-preregister-button" class="btn preRegisterBtn data-id-btn on-rera" data-id="Pre-Register" onclick="submitForm(event, 'Pre-Register-sidemodal')">Pre-Register Now</button>
+                    <form class="text-center" name="Pre-Register-sidemodal" id="preRegisterForm" action="/submit-form/" method="post">
+                        {% csrf_token %}
+                        <div class="form-group mb-3">
+                            <input type="text" class="form-control" placeholder="Enter Your Name here..." name="name" required>
+                            <span class="error">Name field is required</span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="number" id="mobile" class="form-control" required placeholder="Phone Number" name="mobile" oninput="limitDigits(this, 10)">
+                            <span class="error">Mobile field is required</span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="email" id="email" class="form-control" required placeholder="Email" name="email">
+                            <span class="error">Email field is required</span>
+                        </div>
 
-                </form>
+                        <!-- Math Captcha -->
+                        <div class="form-group mb-3">
+                            <label for="captchaAnswer" style="font-weight: bold;">
+                                <span id="captchaNum1"></span> + <span id="captchaNum2"></span> = ?
+                            </label>
+                            <input type="number" id="captchaAnswer" class="form-control" placeholder="Enter the answer" required>
+                            <span id="captchaError" class="error" style="color:red; display:none;">Incorrect Captcha</span>
+                        </div>
+
+                        <input type="hidden" name="form_name" value="Pre-Register">
+                        <input type="hidden" class="website_url" name="website_url">
+
+                        <div class="form-group acceptance mb-3" style="font-size: 10px;">
+                            <label class="form-check-label text-start">
+                                <input type="checkbox" checked class="form-check-input" required>
+                                <span class="text on-rera">I Consent to The Processing of Provided Data...</span>
+                            </label>
+                        </div>
+
+                        <button class="btn preRegisterBtn on-rera" type="submit">Pre-Register Now</button>
+                    </form>
+
                 <h6 class="enqModal" style="margin: 35px auto; font-size: 12px; padding: 16px 0; ">
                     <div class="row text-center justify-content-center icon-sec m-0">
                         <div class="col-4"> <img src="{%  static '' %}assets/images/icons/call.webp" width="32" class="img-fluid data-id-btn">
@@ -324,7 +334,9 @@ display: block;
                     <button type="button" class="btn btn-md close modal-close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
                 </div>
                 <div class="modal-body">
-                    <a class="modal-logo text-center d-block mb-4" href="#" id="modal-logo"></a>
+                    <a class="modal-logo text-center d-block mb-4" href="#" id="modal">
+                        <img src="{{rs.logo.url}}" alt="" style="height: 60px; padding: 1px;" width="160">
+                    </a>
                     <!--this content fetch from JS-->
                 <form id="main-popup" name="modal-form" method="post" action="/submit-form/">
                        {% csrf_token %}
@@ -363,6 +375,18 @@ display: block;
                                 
                             </div>
                         </div>
+                              
+                        <!-- Math Captcha -->
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12 forms-input-fields">
+                                    <label for="captchaInput" style="font-weight: bold;">
+                                        <span id="num1"></span> + <span id="num2"></span> = ?
+                                    </label>
+                                    <input type="number" id="captchaInput" class="form-control" placeholder="Enter the answer" required>
+                                    <span id="captchaError" class="error" style="color:red; display:none;">Incorrect Captcha</span>
+                                </div>
+                            </div>
+
                     </form>
                 </div>
             </div>
@@ -474,6 +498,32 @@ display: block;
 });
 
     </script>
+<style>
+  .error-msg { color: red; font-size: 12px; display: none; }
+  input.invalid { border: 2px solid red; }
+  input.valid { border: 2px solid green; }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let n1 = Math.floor(Math.random() * 10) + 1;
+    let n2 = Math.floor(Math.random() * 10) + 1;
+
+    document.getElementById("num1").innerText = n1;
+    document.getElementById("num2").innerText = n2;
+
+    document.getElementById("main-popup").addEventListener("submit", function(e) {
+        let answer = parseInt(document.getElementById("captchaInput").value);
+        if(answer !== n1 + n2){
+            e.preventDefault();
+            document.getElementById("captchaError").style.display = "block";
+        } else {
+            document.getElementById("captchaError").style.display = "none";
+        }
+    });
+});
+</script>
+
 
     <!-- JavaScript for interactivity -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -572,6 +622,28 @@ gtag('event', 'conversion', {
   }
   })
 </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Random numbers for captcha
+    let num1 = Math.floor(Math.random() * 10) + 1;
+    let num2 = Math.floor(Math.random() * 10) + 1;
+    document.getElementById("captchaNum1").innerText = num1;
+    document.getElementById("captchaNum2").innerText = num2;
+
+    // Form validation
+    document.getElementById("preRegisterForm").addEventListener("submit", function(e) {
+        let userAnswer = parseInt(document.getElementById("captchaAnswer").value);
+        if (userAnswer !== num1 + num2) {
+            e.preventDefault();
+            document.getElementById("captchaError").style.display = "block";
+        } else {
+            document.getElementById("captchaError").style.display = "none";
+        }
+    });
+});
+</script>
+
 
 </body>
 
