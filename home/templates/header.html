@@ -1,0 +1,66 @@
+{% block body %}
+{% load static %}
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TM4KXSZR" height="0" width="0"
+    style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+{% for rs in header %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<div class="container">
+    <!--<a class="navbar-brand" href="#">-->
+    <!--    <img src="img/calm-w.png" alt="">-->
+    <!--</a>-->
+    <a class="navbar-brand d-block d-lg-none" href="#">
+        <img src="{{rs.logo.url}}" class="logo-2" alt="Isle of Calm logo" style="height: 85px;">
+    </a>
+
+    <div class="d-none d-sm-block main-nav-jd">
+        <a class="navbar-brand" href="#">
+            <img src="{{rs.logo.url}}" class="logo-2 cccs" alt="Isle of Calm logo" style="height: 85px;">
+        </a>
+    </div>
+
+    <!-- 
+    <div class=" d-block d-sm-none">
+        <a class="navbar-brand" href="#">
+            <img src="{{rs.logo2.url}}" class="logo-2" alt="Isle of Calm logo">
+        </a>
+        <a href="tel:02268680081" class="phone-btn">
+            <img src="img/phone.png" alt="">
+            022 68680081</a>
+    </div>
+     -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+            <!-- <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li> -->
+            <li class="nav-item"><a class="nav-link menu-link" href="#overview">Overview</a></li>
+            <li class="nav-item"><a class="nav-link menu-link" href="#configuration">Configuration</a></li>
+            <li class="nav-item"><a class="nav-link menu-link" href="#amenities">Amenities</a></li>
+            <li class="nav-item"><a class="nav-link menu-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link menu-link" href="#location">Location</a></li>
+            <li class="nav-item"><a class="nav-link menu-link" href="#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link menu-link" href="#aboutus">About Us</a></li>
+            <!-- <li class="nav-item"><a href="tel:02268680081" class="phone-btn d-none d-sm-block">
+                    <img src="img/phone.png" alt="">   
+                    022 68680081</a> 
+            </li>-->
+            <!-- <li class="nav-item d-block d-lg-none"><a class="navbar-brand" href="#">
+                    <img src="img/logo.png" alt="">
+                </a></li> -->
+        </ul>
+    </div> 
+
+</div>
+</nav>
+{% endfor %}
+
+{% endblock body %}
