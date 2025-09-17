@@ -38,7 +38,7 @@ def index(request):
     unique_Selling_Proposition = Unique_Selling_Proposition.objects.all() 
     configuration = Configuration.objects.all()
     amenities = Amenities.objects.all()
-    gallery = Gallery.objects.all().order_by('-id')[0:4] 
+    gallery = Gallery.objects.all().order_by('-id')[0:20] 
     WhyInvest = Why_Invest.objects.all()
 
     context={
