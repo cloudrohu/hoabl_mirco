@@ -439,17 +439,21 @@
                     <h1 class="section-title on-rera">Luxurious Amenities</h1>
                     <div class="slick-wrapper">
                         <div class="inline-flex align-items-center">
-                            <div class="slick-wrapper">
-                                <div id="slick1">
-                                    {% for rs in amenities %}
-                                    <div class="slide-item">
-                                        <img src="{{rs.icone.url}}" style="height:200px; width:225px;" alt="">
-                                        <p>{{rs.title}}</p>
-                                    </div>
-                                    {% endfor %}
+                            <div id="slick1">
+                                {% for rs in amenities %}
+                                <div class="slide-item">
+                                    <img src="{{rs.icone.url}}" style="height: 200px; width: 225px; gap: 0;" alt="">
+                                    <p>{{rs.title}}</p>
                                 </div>
+                   
+                                {% endfor %}
+                                <!--<div class="slide-item">-->
+                                <!--	<img src="{%  static '' %}assets/images/amenities/Kids play area.webp" alt="">-->
+                                <!--	<p>Kids play area</p>-->
+                                <!--</div>-->
+
                             </div>
-                                                    </div>
+                        </div>
                     </div>
                     <div class="text-center">
                         <br>

@@ -91,7 +91,7 @@ p {
     left: 16px;
     background-image: linear-gradient(45deg, black, transparent);
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 15px;
     margin: 0;
     font-weight: 600;
     letter-spacing: 0.1vw;
@@ -2113,22 +2113,5 @@ footer .elementor-widget-container p {
     .form-section {
         padding-top: 20px !important;
     }
-
-    
-}
-
-#slick1 {
-    display: flex;
-    flex-wrap: nowrap; /* ek line me rakhne ke liye */
-    gap: 0;
-}
-
-#slick1 .slide-item {
-    margin: 0;
-    padding: 0;
-}
-
-#slick1 .slide-item img {
-    display: block; /* inline-image gap remove */
 }
 
