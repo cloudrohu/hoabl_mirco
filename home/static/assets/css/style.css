@@ -2113,5 +2113,22 @@ footer .elementor-widget-container p {
     .form-section {
         padding-top: 20px !important;
     }
+
+    
+}
+
+#slick1 {
+    display: flex;
+    flex-wrap: nowrap; /* ek line me rakhne ke liye */
+    gap: 0;
+}
+
+#slick1 .slide-item {
+    margin: 0;
+    padding: 0;
+}
+
+#slick1 .slide-item img {
+    display: block; /* inline-image gap remove */
 }
 

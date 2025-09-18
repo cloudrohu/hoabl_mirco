@@ -95,8 +95,7 @@ class Configuration(models.Model):
 class Amenities(models.Model):
     icone = models.ImageField(upload_to='amenitiesimage/')
     title = models.CharField(max_length=150)
-    icone2 = models.ImageField(upload_to='uspimage/',blank=True,null=True)
-    title2 = models.CharField(max_length=150,blank=True,null=True)
+
     
     def __str__(self):
         return self.title    
