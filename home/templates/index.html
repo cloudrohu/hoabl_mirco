@@ -4,11 +4,11 @@
 {% for rs in header %}
 
 <style>
-@media (max-width: 768px) {
-  .mobile-img {
-    height: 300px !important;
-  }
-}
+    @media (max-width: 768px) {
+    .mobile-img {
+        height: 300px !important;
+    }
+    }
 </style>
 
 <style>
@@ -206,6 +206,136 @@
 
 
 </style>
+
+
+<style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+    }
+
+    .amenities-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .amenities-section h2 {
+      font-size: 32px;
+      color: #6a3c0c;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .underline {
+      width: 60px;
+      height: 4px;
+      background: #6a3c0c;
+      margin: 0 auto 40px auto;
+      border-radius: 5px;
+    }
+
+    .slider-container {
+      position: relative;
+      max-width: 1200px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .slide-page {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      flex: 0 0 100%;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .amenity-card {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .amenity-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .amenity-card img {
+      width: 100%;
+      height: 275px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .amenity-label {
+      position: absolute;
+      bottom: 10px;
+      left: 15px;
+      background: #fff;
+      color: #000;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .artist-tag {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255,255,255,0.95);
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 500;
+    }
+
+    /* Arrows */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      border: none;
+      padding: 18px;
+      border-radius: 50%;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+    .slider-btn:hover {
+      background: #f5f5f5;
+    }
+
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .slide-page {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .slide-page {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 
     <div class="main-container d-flex">        
         <main class="left-section">
@@ -434,33 +564,19 @@
                 </div>
             </section>
             <!-- xxxxxxxxxxxx floor plan end xxxxxxxxxxxx -->
-            <section class="sec1" id="amenities">
-                <div class="container">
-                    <h1 class="section-title on-rera">Luxurious Amenities</h1>
-                    <div class="slick-wrapper">
-                        <div class="inline-flex align-items-center">
-                            <div id="slick1">
-                                {% for rs in amenities %}
-                                <div class="slide-item">
-                                    <img src="{{rs.icone.url}}" style="height: 200px; width: 225px; gap: 0;" alt="">
-                                    <p>{{rs.title}}</p>
-                                </div>
-                   
-                                {% endfor %}
-                                <!--<div class="slide-item">-->
-                                <!--	<img src="{%  static '' %}assets/images/amenities/Kids play area.webp" alt="">-->
-                                <!--	<p>Kids play area</p>-->
-                                <!--</div>-->
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <br>
-                        <button id="request-amenities-button" type="button" class="btn custom-btn data-id-btn non-rera" data-bs-target="#enquire-modal" data-bs-toggle="modal" data-bs-whatever="Enquire Now" data-id="Amenities">Express Your Interest</button>
-                    </div>
+            <section class="amenities-section" id="amenities">
+                <h2>Amenities</h2>
+                <div class="underline"></div>
+                <div class="slider-container">
+                <div class="slider-wrapper" id="slider-wrapper">
+                    <!-- JS yaha auto pages banayega -->
                 </div>
-            </section>
+
+                <!-- Buttons -->
+                <button class="slider-btn prev-btn">&#10094;</button>
+                <button class="slider-btn next-btn">&#10095;</button>
+                </div>
+         </section>
             <!-- xxxxxxxxxxxx Amenities section end end xxxxxxxxxxxx -->
             <!-- xxxxxxxxxxxx Gallery section xxxxxxxxxxxx -->
             <section class="sec2" id="gallery">
@@ -679,6 +795,66 @@
             </span>
         </a>
 
+
+
+  <script>
+    const amenities = [
+    {% for rs in amenities %}
+      { img: "{{rs.icone.url}}", label: "{{rs.title}}" },
+      {% endfor %}
+
+    ];
+
+    const wrapper = document.getElementById("slider-wrapper");
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    // --- Auto page creation (6 items per page)
+    for (let i = 0; i < amenities.length; i += 6) {
+      const page = document.createElement("div");
+      page.classList.add("slide-page");
+
+      amenities.slice(i, i + 6).forEach(item => {
+        const card = document.createElement("div");
+        card.classList.add("amenity-card");
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.label}">
+          <span class="artist-tag">*Artists Impression</span>
+          <span class="amenity-label">${item.label}</span>
+        `;
+        page.appendChild(card);
+      });
+
+      wrapper.appendChild(page);
+    }
+
+    const totalPages = document.querySelectorAll('.slide-page').length;
+    let index = 0;
+
+    function updateSlide() {
+      wrapper.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (index < totalPages - 1) {
+        index++;
+        updateSlide();
+      }
+    });
+
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+        updateSlide();
+      }
+    });
+
+    // Agar sirf 1 page ho to arrows hide
+    if (totalPages <= 1) {
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+    }
+  </script>
 
         
 {% endfor %}
