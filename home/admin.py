@@ -1,84 +1,42 @@
 from django.contrib import admin
+import admin_thumbnails
 from .models import *
 
-# Register your models here. 1
-class SettingAdmin(admin.ModelAdmin):
-    list_display = ['id','logo','logo_2', 'color']
-admin.site.register(Setting,SettingAdmin)
+@admin_thumbnails.thumbnail('web_image')
+class WebSliderAdmin(admin.ModelAdmin):
+    list_display = ['title', 'web_image_thumbnail']
 
-
-# Register your models here. 2
-
-class Web_SliderAdmin(admin.ModelAdmin):
-    list_display = ['id','web_image','mobile_image', 'title']
-admin.site.register(Web_Slider,Web_SliderAdmin)
-
-
-# Register your models here. 3
+@admin_thumbnails.thumbnail('web_image')
 class OverviewAdmin(admin.ModelAdmin):
-    list_display = ['id','web_image','mobile_image', 'title','details']
-admin.site.register(Overview,OverviewAdmin)
+    list_display = ['title', 'web_image_thumbnail']
 
-
-
-# Register your models here. 4
-class About_UsAdmin(admin.ModelAdmin):
-    list_display = ['id','title','details']
-admin.site.register(About_Us, About_UsAdmin)
-
-
-# Register your models here. 5
-class Unique_Selling_PropositionAdmin(admin.ModelAdmin):
-    list_display = ['id','icone','title',]
-admin.site.register(Unique_Selling_Proposition,Unique_Selling_PropositionAdmin)
-
-
-# Register your models here. 6
-class ConfigurationAdmin(admin.ModelAdmin):
-    list_display = ['id','typology','rera_carpet_area','price']
-admin.site.register(Configuration, ConfigurationAdmin)
-
-
-# Register your models here. 7
-class AmenitiesAdmin(admin.ModelAdmin):
-    list_display = ['id','icone','title',]
-admin.site.register(Amenities, AmenitiesAdmin)
-
-
-# Register your models here. 8
+@admin_thumbnails.thumbnail('web_image')
 class GalleryAdmin(admin.ModelAdmin):
-    list_display = ['id','web_image','title']
-admin.site.register(Gallery, GalleryAdmin)
+    list_display = ['title', 'web_image_thumbnail']
 
+@admin_thumbnails.thumbnail('icone')
+class AmenitiesAdmin(admin.ModelAdmin):
+    list_display = ['title', 'icone_thumbnail']
 
+@admin_thumbnails.thumbnail('icone')
+class USPAdmin(admin.ModelAdmin):
+    list_display = ['title', 'icone_thumbnail']
 
-
-# Register your models here. 8
-class BookingopenAdmin(admin.ModelAdmin):
-    list_display = ['id','project_name','at', 'by', 'landp_arcel','possession','spot_booking_offers','early_buy_discounts','flexipay_for_first','luxurious','priceing']
-admin.site.register(Bookingopen, BookingopenAdmin)
-
-
-# Register your models here. 8
-class WelcometoAdmin(admin.ModelAdmin):
-    list_display = ['id','title','details', 'readmore',]
-admin.site.register(Welcometo, WelcometoAdmin)
-
-# Register your models here. 8
-class LocationAdmin(admin.ModelAdmin):
-    list_display = ['id','title',]
-admin.site.register(Location, LocationAdmin)
-
-
+@admin_thumbnails.thumbnail('qr_image')
 class MahareraAdmin(admin.ModelAdmin):
-    list_display = ['id','title','maharera_no','details']
+    list_display = ['title', 'qr_image_thumbnail']
+
+admin.site.register(Setting)
+admin.site.register(Web_Slider, WebSliderAdmin)
+admin.site.register(Overview, OverviewAdmin)
+admin.site.register(About_Us)
+admin.site.register(Unique_Selling_Proposition, USPAdmin)
+admin.site.register(Configuration)
+admin.site.register(Amenities, AmenitiesAdmin)
+admin.site.register(Gallery, GalleryAdmin)
+admin.site.register(Bookingopen)
+admin.site.register(Welcometo)
+admin.site.register(Location)
 admin.site.register(Maharera, MahareraAdmin)
-
-class ReraaditionalAdmin(admin.ModelAdmin):
-    list_display = ['id','project_registered','Government_RERA_Authorised_Advertiser','RERA_Project_Registration_No','Site_Address','Contact_Us','Disclaimer']
-admin.site.register(Reraaditional, ReraaditionalAdmin)
-
-
-class Why_InvestAdmin(admin.ModelAdmin):
-    list_display = ['id','title','discripation']
-admin.site.register(Why_Invest, Why_InvestAdmin)
+admin.site.register(Reraaditional)
+admin.site.register(Why_Invest)
