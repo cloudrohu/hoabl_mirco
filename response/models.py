@@ -4,9 +4,9 @@ from django.db import models
 
 
 class Response(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    phone = models.CharField(max_length=15)
+    name = models.CharField(max_length=100,blank=True,null=True)
+    email = models.EmailField(blank=True,null=True)
+    phone = models.CharField(max_length=15,blank=True,null=True)
 
     created_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)  # sets once when created
     updated_at = models.DateTimeField(auto_now=True,blank=True,null=True)  

@@ -103,6 +103,7 @@ class Amenities(models.Model):
     class Meta:
         verbose_name_plural='7. Amenities'
 
+
 class Gallery(models.Model):   
     web_image = models.ImageField(upload_to='galleryimage/')
     title = models.CharField(max_length=150)
@@ -154,6 +155,7 @@ class Location(models.Model):
         
     class Meta:
         verbose_name_plural='12. Location'
+
 
 class Maharera(models.Model):
     qr_image = models.ImageField(upload_to='overviewimage/')

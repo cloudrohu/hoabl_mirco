@@ -3,649 +3,559 @@
 {% load static %}
 {% for rs in header %}
 <head>
-    <meta charset="utf-8">
-    <title>{{rs.title}}</title> 
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="{{rs.keywords}}">    
-        
-    <link rel="icon" href="{{rs.icon.url}}"  sizes="16x16">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{{rs.description}}">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.css">
-    <link rel="stylesheet" href="{%  static '' %}assets/css/gallery.css">
-    <link href="{%  static '' %}assets/css/style.css" rel="stylesheet">
-    <link href="{%  static '' %}assets/css/theme.css" rel="stylesheet">
     <!-- Google Tag Manager -->
-    <!-- Global site tag (gtag.js) - Google Ads -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-{{rs.googletagmanager}}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WRWHZ72');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="favicon.jpg" />
+    <title>{{rs.title}}</title>
+    <link rel="preload" href="{% static '' %}assets/img/mobban1.webp" as="image">
+    <link rel="stylesheet" href="{% static '' %}assets/css/pure_style.css" />
+    <link rel="preload" href="{% static '' %}assets/css/pure_style.css" as="style" />
+    <link rel="preload" href="{% static '' %}assets/fonts/micon.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="dns-prefetch" href="//google-analytics.com" crossorigin />
+    <link rel="dns-prefetch" href="//googletagmanager.com" crossorigin />
+    <link rel="dns-prefetch" href="//www.googleadservices.com" crossorigin />
+    <link rel="dns-prefetch" href="//googleads.g.doubleclick.net" crossorigin />
+    <meta name="description" content="{{rs.description}}" />
+    <meta name="keywords" content="" />
+    <link rel="canonical" href="{{rs.website_link}}" />
+    <meta property="og:title" content="{{rs.title}}" />
+    <meta property="og:type" content="{{rs.website_link}}" />
+    <meta property="og:url" content="{{rs.website_link}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <meta property="og:image" content="{% static '' %}assets/img/deskban1.webp" />
+    <meta property="og:description" content="{{rs.description}}" />
+    <meta property="twitter:title" content="{{rs.title}}" />
+    <meta property="twitter:description" content="{{rs.description}}" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style>
+        :root {
+            --colorPrimary: #ed0d44;
+            --colorSecondary: #d41141;
+            --colorBtn: #ffffff;
+            --bgDesk: url('../img/deskban1.webp');
+            --bgMob: url('../img/mobban1.webp');
+        }
 
-  gtag('config', 'AW-{{rs.googletagmanager}}');
-</script>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('{% static '' %}assets/fonts/Roboto-Regular.woff2') format('woff2');
+            font-weight: normal;
+        }
 
+        @font-face {
+            font-family: 'Roboto';
+            src: url('{% static '' %}assets/fonts/Roboto-Bold.woff2') format('woff2');
+            font-weight: bold;
+        }
+
+        #loader {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1040;
+        }
+
+        .loader-text {
+            display: block;
+            text-align: center;
+            color: #d7d7d7;
+            font-family: Roboto, sans-serif;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes loader {
+            0% {
+                filter: grayscale(0);
+            }
+            50% {
+                filter: grayscale(100%);
+            }
+            100% {
+                filter: grayscale(0);
+            }
+        }
+
+        /*.loader-logo {width: 300px;-webkit-animation: loader 1.3s infinite linear;-moz-animation: loader 1.3s infinite linear;-ms-animation: loader 1.3s infinite linear;-o-animation: loader 1.3s infinite linear;animation: loader 1.3s infinite linear;}*/
+
+        /*.pload {display: none;}*/
+
+        .iti__flag-container {
+            display: none;
+        }
+
+        section#mymap {
+            height: 540px;
+        }
+
+        button.btn.btn-sm.btn-outline-info.sectio-bro-btn.overflow-hidden.enqModal {
+            margin-bottom: 15px;
+        }
+
+        input#submitBtn {
+            margin: 15px 0;
+        }
+
+        .textcolor {
+            color: #fff;
+        }
+
+        button.btn.btn-info.micro-form-btn.effetMoveGradient.submitBtn.enqModal {
+            margin-bottom: 15px;
+        }
+
+        a.drift-open-chat {
+            color: #fff;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        select.my_country_name.form-control.rounded-0.micro-form-field {
+            float: left;
+            display: inline-block;
+            width: 40%;
+            padding-left: 8px;
+        }
+
+        input#modal_my_mobile {
+            width: 60%;
+        }
+
+        /*--for thank you page --*/
+
+        .thankyou-text p {
+            text-align: center !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="{% static '' %}assets/css/chatv25.css" />
 </head>
- 
-<style>
 
-.navbar-nav.flex-row .nav-item {
-  border-left: 1px solid #ddd;
-  padding: 0 7px;
-  display: flex;
-  align-items: center;
-}
-@media (max-width: 991px) {
-  .navbar-nav.flex-row .nav-item {
-    padding: 8px 10px;
-    font-size: 14px;
-  }
-
-  .nav-link i {
-    margin-right: 8px;
-  }
-
-  .nav-link span {
-    display: inline !important;
-  }
-}
-
-/* Remove border from first item */
-.navbar-nav.flex-row .nav-item:first-child {
-  border-left: none;
-}
-
-/* Style nav-link */
-.navbar-nav.flex-row .nav-link {
-  color: black;
-  text-decoration: none;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-/* Optional: hover underline effect */
-.navbar-nav.flex-row .nav-link:hover {
-  text-decoration: underline;
-  color: #000;
-}
-
-#navbarNav {
-display: none;
-}
-
-#navbarNav.show {
-display: block;
-}
-@media (max-width: 991px) {
-#navbarNav {
-    display: none;
-}
-#navbarNav.show {
-    display: block;
-}
-
-/* Optional: menu items stacked vertically */
-#navbarNav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-}
-}
-@media (max-width: 991px) {
-#navbarNav {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
-}
-
-#navbarNav.show {
-    max-height: 500px; /* adjust height based on how tall your menu is */
-}
-
-/* Optional: vertical stacking */
-#navbarNav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px 0;
-}
-
-#navbarNav ul li {
-    padding-left: 3px;
-    margin-left: 2px;
-    
-}
-}
-#navbarNav ul li:hover{
-    text-decoration: underline;
-    color: blue;
-    cursor: pointer;
-    
-}
-
-
-.nav-link.active i {
-  color: #d4af37 !important;
-}
-
-
-
-.nav-link {
-  position: relative;
-  text-decoration: none;
-  color: rgb(255, 255, 255); /* optional - set your default color */
-  border-radius: 10px;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color:#b38b00; /* underline color */
-  transition: width 0.3s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-.nav-link i {
-  margin-right: 3px;
-}
-
-</style>
-
-
-
-<body class="lodha-yellow">
-    
-    <!-- xxxxxxxxxxxx Navigator xxxxxxxxxxxx -->
-            <nav class="navbar navbar-light bg-white fixed-top shadow-sm" style="height: 75px;">
-            <div class="container-fluid">
-
-                <!-- Logo: Always on the left -->
-                <a class="navbar-brand" href="#">
-               <img src="{{rs.logo.url}} " alt="Logo" style="height: 55px; padding: 1px;" width="160">
-
-                </a>
-
-              <!-- Toggler (visible on mobile & tablet both) -->
-            <button class="navbar-toggler d-md-block d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"aria-controls="offcanvasNavbar"><span class="navbar-toggler-icon"></span></button>
-
-
-                
-
-                <!-- Desktop Menu (visible only on large screens) -->           
-             <div class="d-none d-lg-flex ms-auto align-items-center">
-
-                <ul class="navbar-nav flex-row">
-                    
-                    <li class="nav-item" ><a class="nav-link" href="#home"><i class="fa-solid fa-house"></i><span class="d-sm-inline d-md-none"> Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#pricing"><i class="fa-solid fa-indian-rupee-sign"></i>Price</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sitefloorplan"><i class="fa-solid fa-sitemap"></i>Site &amp; Floor Plan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#amenities"><i class="fa-solid fa-wifi"></i>Amenities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery"><i class="fa-solid fa-images"></i>Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#location"><i class="fa-solid fa-location-dot"></i>Location</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#virtual-tour-section"><i class="fa-brands fa-youtube"></i>Virtual Site Visit </a></li>
-
-                    
-                </ul>
-                </div>
-
-                <!-- Mobile Offcanvas Menu -->
-                <div class="offcanvas offcanvas-end d-lg-none" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <img src="{{rs.logo.url}} " alt="Logo" style="height: 60px; padding: 1px;" width="160">
-
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav">
-                   <li class="nav-item" ><a class="nav-link" href="#home"><i class="fa-solid fa-house"></i><span class="d-sm-inline d-md-none">Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#highlights"><i class="fa-solid fa-star"></i> Highlights</a></li>                    
-                    <li class="nav-item"><a class="nav-link" href="#pricing"><i class="fa-solid fa-indian-rupee-sign"></i>    Price</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#sitefloorplan"><i class="fa-solid fa-sitemap"></i> Site &amp; Floor Plan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#amenities"><i class="fa-solid fa-wifi"></i> Amenities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery"><i class="fa-solid fa-images"></i> Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#location"><i class="fa-solid fa-location-dot"></i> Location</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#virtual-tour-section"><i class="fa-brands fa-youtube"></i> Virtual Site Visit </a></li>
-
-                    </ul>
-                </div>
-                </div>
-
-            </div>
-            </nav>
-    <!-- xxxxxxxxxxxx Navigator End xxxxxxxxxxxx -->
-
-<br>
-    
-    {% block header %} {% endblock %}
+<body data-spy="scroll" data-target="#navbarNav">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WRWHZ72 height=0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+     {% include "header.html" %}
     {% block body %}{% endblock body %}
 
 
 
 
+    <style>
+        .action-icon img {
+            height: 22px;
+            width: auto;
+            margin-right: 7px;
+        }
 
-  </div>
-</section>
+        .ft-main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0% 2%;
+            font-size: 14px;
+        }
 
-                <section>
-                    <div class="footer-enquiryBtn d-flex d-sm-none">
-                        <a class="monCall data-id-btn" id="mobPhone" href="tel:+91{{rs.cuntact_no}}"><em class="fa fa-phone"></em> Call</a>
-                        <a id="discovery_mobile" target="_blank" class="monCall whatsappBtn data-id-btn on-rera" href="https://api.whatsapp.com/send?phone=91{{rs.cuntact_no}}&text=Hey There, I would like to explore further details About {% for rs in bookingopen %} {{rs.project_name}}  By {{rs.by}} At {{rs.at}} {% endfor %} Maharashtra. Please Share Details."><i class="fa fa-brands fa-whatsapp"></i> WhatsApp</a>
-                        <a class="monCall data-id-btn on-rera" id="mobPhone" data-bs-target="#enquire-modal" data-bs-toggle="modal" data-bs-whatever="Enquire Now" data-id="Enquire Now">Enquire Now</a> <a class="monCall data-id-btn non-rera" id="mobPhone"
-                            data-bs-target="#enquire-modal" data-bs-toggle="modal" data-bs-whatever="Enquire Now" data-id="Enquire Now">Express Your Interest</a>
-                    </div>
-                </section>
-            </div>
-        </main>
-        <!--end left-section-->
-        <section class="desktop-summary">
-            <div class="og-block d-flex justify-content-between">
-                <button id="right-panel-schedule-site-visit-button" class="btn data-id-btn" data-bs-target="#enquire-modal" data-bs-toggle="modal" data-bs-whatever="Enquire Now" data-id="Site Visit">Schedule Site Visit</button>
-                <button class="btn"><em class="fa fa-phone"></em><a href="tel:+91{{rs.cuntact_no}}" style="color:#ffff;text-decoration:none;"> +91{{rs.cuntact_no}}</a> </button>
-            </div>
-            <div class="form-section p-3">
-                <h2 class="pb-2">Pre-Register here for Best Offers</h2>
-                    <form class="text-center" name="Pre-Register-sidemodal" id="preRegisterForm" action="/submit-form/" method="post">
-                        {% csrf_token %}
-                        <div class="form-group mb-3">
-                            <input type="text" class="form-control" placeholder="Enter Your Name here..." name="name" required>
-                            <span class="error">Name field is required</span>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="number" id="mobile" class="form-control" required placeholder="Phone Number" name="mobile" oninput="limitDigits(this, 10)">
-                            <span class="error">Mobile field is required</span>
-                        </div>
-                        <div class="form-group mb-3">
-                            <input type="email" id="email" class="form-control" required placeholder="Email" name="email">
-                            <span class="error">Email field is required</span>
-                        </div>
+        .ft-left {
+            width: 82%;
+        }
 
-                        <!-- Math Captcha -->
-                        <div class="form-group mb-3">
-                            <label for="captchaAnswer" style="font-weight: bold;">
-                                <span id="captchaNum1"></span> + <span id="captchaNum2"></span> = ?
-                            </label>
-                            <input type="number" id="captchaAnswer" class="form-control" placeholder="Enter the answer" required>
-                            <span id="captchaError" class="error" style="color:red; display:none;">Incorrect Captcha</span>
-                        </div>
+        .ft-right {
+            width: 16%;
+        }
 
-                        <input type="hidden" name="form_name" value="Pre-Register">
-                        <input type="hidden" class="website_url" name="website_url">
+        .acceptcookies {
+            font-size: 16px;
+            padding: 3px 30px;
+        }
 
-                        <div class="form-group acceptance mb-3" style="font-size: 10px;">
-                            <label class="form-check-label text-start">
-                                <input type="checkbox" checked class="form-check-input" required>
-                                <span class="text on-rera">I Consent to The Processing of Provided Data...</span>
-                            </label>
-                        </div>
+        @media (min-width: 1920px) and (max-width: 2560px) {
+            .ft-main {
+                font-size: 19px;
+            }
+        }
 
-                        <button class="btn preRegisterBtn on-rera" type="submit">Pre-Register Now</button>
-                    </form>
+        @media (min-width: 2561px) and (max-width: 5120px) {
+            .ft-main {
+                font-size: 36px;
+            }
+        }
 
-                <h6 class="enqModal" style="margin: 35px auto; font-size: 12px; padding: 16px 0; ">
-                    <div class="row text-center justify-content-center icon-sec m-0">
-                        <div class="col-4"> <img src="{%  static '' %}assets/images/icons/call.webp" width="32" class="img-fluid data-id-btn">
-                            <p class="mb-0">Instant Call Back</p>
-                        </div>
-                        <div class="col-4"> <img src="{%  static '' %}assets/images/icons/car.webp" width="32" class="img-fluid data-id-btn">
-                            <p class="mb-0">Free Site Visit</p>
-                        </div>
-                        <div class="col-4"> <img src="{%  static '' %}assets/images/icons/pay.webp" width="32" class="img-fluid" alt="Best Price">
-                            <p class="mb-0">Best Price</p>
-                        </div>
-                    </div>
-                </h6>
-            </div>
-            <!--end form-section-->
-            <div class="call-back-section text-center pt-2 pb-2 on-rera">
-                <button id="right-panel-request-callback-button" class="btn callBackBtn data-id-btn" data-bs-target="#enquire-modal" data-bs-toggle="modal" data-bs-whatever="Enquire Now" data-id="Call Back">Request Call Back</button>
-            </div>
-            <div class="call-back-section text-center pt-2 pb-2 non-rera">
-                <button id="right-panel-request-callback-button" class="btn callBackBtn data-id-btn" data-bs-target="#enquire-modal" data-bs-toggle="modal" data-bs-whatever="Enquire Now" data-id="Call Back">Express Your Interest</button>
-            </div>
-            <!--end call-back-section-->
-        </section>
+        @media (min-width: 1920px) and (max-width: 5120px) {
+            .acceptcookies {
+                font-size: 46px;
+                padding: 3px 30px;
+            }
+        }
+
+        @media (min-width: 320px) and (max-width: 767px) {
+            .ft-main {
+                display: block;
+            }
+            .ft-left {
+                width: 100%;
+                text-align: justify;
+            }
+            .ft-right {
+                width: 100%;
+            }
+            .acceptcookies {
+                margin-top: 10px;
+                margin-left: 0px !important;
+            }
+        }
+    </style>
+    <!--exit modal 1 start -->
+    <div class="modal fade lightbox" id="enqModal233" role="dialog" aria-hidden="true"></div>
+    <!--Exit modal 1 end-->
+    <!--exit modal 2 start -->
+    <div class="modal fade lightbox2 abc"></div>
+    <!--exit modal 2 end -->
+    <div class="micro-side text-center">
+        <div class="og-section pb-2">
+            <ul class="nav nav-fill og-block">
+                <li class="new-pdf nav-item enqModal" data-form="lg" data-title="Download Price Sheet" data-btn="Download Now" data-enquiry="Download Price Sheet Top Corner Desktop" data-toggle="modal" data-target="#enqModal">
+                    <div><img src="{% static '' %}assets/img/newpdfimg.png" class="bounce pdf-img"></div>
+                    <div>Download<br>Price Sheet</div>
+                </li>
+                <li class="nav-item driftc d-flex-center-items"> <a href="tel:+91{{rs.cuntact_no}}" class="textcolor d-flex-center-items"><i class="fa-solid fa-phone"></i> +91{{rs.cuntact_no}}</a></li>
+            </ul>
+            <button class="btn-danger pulse-shadow btn btn-sm btn-info micro-form-btn-sm effectScale enqModal mt-1" data-form="sm" data-title="Instant Call Back" data-btn="Request Call Now" data-enquiry="Request Call Back" data-toggle="modal" data-target="#enqModal">
+                        <span class="fa-solid fa-phone-volume action-icon"></span> Instant Call Back</button>
+        </div>
+        <span class="d-block form-heading font-weight-bold mr-tb-text">Get The Best Quote</span>
+        <form action="{% url 'submit_form' %}" method="post" class="form-side" id="pardotForm" class="pardotForm">
+            {% csrf_token %}
+            <input type="text" id="fname" placeholder="Name" name="fname" class="form-control rounded-0 micro-form-field" required>
+            <div class="error" id="name_error"></div>
+            <input type="email" id="email" placeholder="Email Address(Optional)" name="email" class="form-control rounded-0 micro-form-field">
+            <div class="error" id="address_error"></div>
+            <select class="my_country_name form-control rounded-0 micro-form-field" aria-label="countryname" name="country_name">
+                        <option data-countrycode="IN" value="India" data-contry_code="91">India (+91)</option>
+                    </select>
+            <input type="hidden" value="+91" name="country_code" id="country_code" class="operations-supplierCapacity" />
+
+            <input name="modal_my_mobile2" class="form-control numeric rounded-0 micro-form-field" id="modal_my_mobile" pattern="^[_0-9]+" placeholder="Phone number" type="text" value="" required="required" data-error="Please enter your valid mobile number" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
+            <input type="hidden" id="first_name" name="first_name">
+            <input type="hidden" id="last_name" name="last_name">
+            <input type="hidden" id="builder" name="builder" value="Ruparel Realty">
+            <input type="hidden" id="project" name="project" value="{{rs.title}}">
+            <input type=hidden id="lead_source" name="lead_source" value="Microsite">
+            <input type="hidden" name=ip id="ip" value="150.107.16.195">
+            <input type="hidden" name=mobile id="modal_dg_mobile2" class="mobileconcat">
+            <input type="hidden" id="enquiredfor" name="enquiredfor" value="Pre Register here for Best Offers">
+            <input type="hidden" name="home_url" value="{{rs.website_link}}">
+            <input type="hidden" name="gclid" id="gclid" value="Cj0KCQjw9obIBhCAARIsAGHm1mSbURPCzcEtC9RT6eAxuwvC_j_MCyl3iDQMO9eg3EcXkhOIncFlAr4aAr0gEALw_wcB">
+            <input type="hidden" name="utm_source" id="utm_source" value="google">
+            <input type="hidden" name="utm_medium" id="utm_medium" value="cpc">
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="{{rs.title}} SOBO2">
+            <input type="hidden" name="utm_term" id="utm_term" value="ruparel realty">
+            <input type="hidden" name="utm_physical_location" id="utm_physical_location" value="9198375">
+            <input type="hidden" name="utm_tragetid" id="utm_tragetid" value="kwd-491013889352">
+            <input type="hidden" name="utm_target" id="utm_target" value="">
+            <input type="hidden" name="utm_placement" id="utm_placement" value="">
+            <input type="hidden" name="utm_adposition" id="utm_adposition" value="">
+            <input type="hidden" id="organization_name" name="organization_name">
+            <input type="submit" value="Get It Now" class="btn btn-info micro-form-btn effetMoveGradient submitBtn" id="submitBtn">
+            <div><span class="errorMessage" id="errorMessage2" style="color: red; margin-left: 10px;"></span></div>
+        </form>
+
     </div>
-    <!--end main container-->
-    <div class="modal enquire-modal" data-bs-dismissable="modal" id="enquire-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-center">Enquire Now</h4>
-                    <button type="button" class="btn btn-md close modal-close" data-bs-dismiss="modal" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                </div>
-                <div class="modal-body">
-                    <a class="modal-logo text-center d-block mb-4" href="#" id="modal">
-                        <img src="{{rs.logo.url}}" alt="" style="height: 60px; padding: 1px;" width="160">
-                    </a>
-                    <!--this content fetch from JS-->
-                <form id="main-popup" name="modal-form" method="post" action="/submit-form/">
-                       {% csrf_token %}
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-12 forms-input-fields">
-                                <i class="fa-solid fa-user"></i>
-                                <input type="text" name="name" class="form-control" autofocus required placeholder="Name*" required> 
-                                <span name="nameError" class="error">Name field is required</span>
-                            </div>
-                            <div class="col-lg-6 col-sm-12 forms-input-fields">
-                                <i class="fa-solid fa-phone"></i>
-                                <input type="number" name="mobile" id="mobile" class="form-control" required placeholder="Mobile*" required oninput="limitDigits(this, 10)">
-                                <span name="nameError" class="error">Mobile field is required</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-sm-12 forms-input-fields">
-                                <i class="fa-solid fa-envelope"></i>
-                                <input type="email" name="email" class="form-control" placeholder="Email" required>
-                            </div>
-                        </div>
-                        <div>
-                            <input type="hidden" name="form_name" id="form_name" class="form-control form_name" value="Auto Modal">
-                            <input type="hidden" id="website_url" class="website_url" name="website_url">
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-sm-12 forms-input-fields"  required>
-                                <div class="form-group acceptance">
-                                    <label class="form-check-label">
-										<input type="checkbox" checked class="form-check-input">
-										<span class="text on-rera-">I Consent to The Processing of Provided Data According To <a href="Privacy-Policy.html" style="color:#007bff"> Privacy Policy | </a> <a href="terms-conditions.html" style="color:#007bff;"> Terms &amp; Conditions</a>, I Authorize Prop Solutions 4 U Pvt. Ltd. and its representatives to Call, SMS, Email or WhatsApp Me About Its Products and Offers. This Consent Overrides Any Registration For DNC/NDNC. </span>
-										<span class="text non-rera">Please be informed that this website is not intended to facilitate any sales transactions. I understand and acknowledge that the project I am interested in hasn't yet secured RERA clearance. The primary purpose of this website is to generate interest and gather information. By providing my data, I consent to its use in accordance with the <a href="Privacy-Policy.html" style="color:#007bff"> Privacy Policy | </a> <a href="terms-conditions.html" style="color:#007bff;"> Terms &amp; Conditions</a></span>
-									</label>
-                                </div>
-                                <button type="submit" name="Submit" class="btn mx-auto d-block form-btn1 on-rera" onclick="submitForm(event, 'modal-form')">Enquire Now</button>
-                                
-                            </div>
-                        </div>
-                              
-                        <!-- Math Captcha -->
-                            <div class="row">
-                                <div class="col-lg-12 col-sm-12 forms-input-fields">
-                                    <label for="captchaInput" style="font-weight: bold;">
-                                        <span id="num1"></span> + <span id="num2"></span> = ?
-                                    </label>
-                                    <input type="number" id="captchaInput" class="form-control" placeholder="Enter the answer" required>
-                                    <span id="captchaError" class="error" style="color:red; display:none;">Incorrect Captcha</span>
+    <div class="modal fade" id="enqModal" role="dialog" aria-label="Connect with Us" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered enq-modal" role="document">
+            <div class="modal-content popmodal">
+                <div class="modal-body text-center">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!--<div class="modal-head d-none"><span class="modal-title"> Download Brochure</span></div>-->
+                    <div class="d-flex">
+                        <div class="flex-fill align-self-center flex-shrink-1 modal-highlight-bg d-none d-lg-block popbox-left">
+                            <div class="poplogo-box"><span class="popup-logo"><img alt="{{rs.title}} Logo" src="{{rs.logo.url}}" class="poplogo"></span></div>
+                            <div class="popleftsec">
+                                <div class="popleftinner">
+                                    <span class="modal-highlight-title">We Promise</span>
+                                    <ul class="modal-highlight">
+                                        <li><i class="fa-solid fa-phone-volume"></i><span>Instant Call Back</span></li>
+                                        <li><i class="fa-solid fa-sitemap"></i><span>Free Site Visit</span></li>
+                                        <li><i class="fa-solid fa-coins"></i><span>Unmatched Price</span></li>
+                                    </ul>
                                 </div>
                             </div>
+                        </div>
+                        <div class="flex-fill popbox-right">
+                            <div class="modal-head d-none"><span class="modal-title"> Download Brochure</span></div>
+                            <div class="poplogo-box desktop"><span class="popup-logo"><img alt="{{rs.title}} Logo" src="{{rs.logo.url}}" class="poplogo logo"></span></div>
+                            <span class="modal-title-secondary text-left"> Register here and Avail the <span class="text-danger">Best Offers!!</span></span>
+                            <form action="{% url 'submit_form' %}" method="post" class="form-side" id="pardotForm" class="pardotForm">
+                                         {% csrf_token %}
+                                <input type="text" id="fname" placeholder="Name" name="fname" class="form-control rounded-0 micro-form-field" required>
+                                <div class="error" id="name_error"></div>
+                                <input type="email" id="email" placeholder="Email Address(Optional)" name="email" class="form-control rounded-0 micro-form-field">
+                                <div class="error" id="address_error"></div>
+                                <select class="my_country_name form-control rounded-0 micro-form-field" aria-label="countryname" name="country_name">
+                               <option data-countrycode="IN" value="India" data-contry_code="91">India (+91)</option>
+                                       
+                                    </select>
+                                <input type="hidden" value="91" name="country_code" id="country_code" class="operations-supplierCapacity" />
+                                <input name="modal_my_mobile2" class="form-control numeric rounded-0 micro-form-field" id="modal_my_mobile" pattern="^[_0-9]+" placeholder="Phone number" type="text" value="" required="required" data-error="Please enter your valid mobile number" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
+                                <!--<input type="hidden" name="my_country_name" id="country" value="India">-->
+                                <input type="hidden" id="first_name" name="first_name">
+                                <input type="hidden" id="last_name" name="last_name">
+                                <input type="hidden" id="builder" name="builder" value="Ruparel Realty">
+                                <input type="hidden" id="project" name="project" value="{{rs.title}}">
+                                <input type=hidden id="lead_source" name="lead_source" value="Microsite">
+                                <input type="hidden" name=ip id="ip" value="150.107.16.195">
+                                <input type="hidden" name=mobile id="modal_dg_mobile" class="mobileconcat">
+                                <input type="hidden" id="enquiredfor" name="enquiredfor" value="Get Instant Call Back Home Page Pop Up">
+                                <input type="hidden" name="home_url" value="{{rs.website_link}}">
+                                <input type="hidden" name="gclid" id="gclid" value="Cj0KCQjw9obIBhCAARIsAGHm1mSbURPCzcEtC9RT6eAxuwvC_j_MCyl3iDQMO9eg3EcXkhOIncFlAr4aAr0gEALw_wcB">
+                                <input type="hidden" name="utm_source" id="utm_source" value="google">
+                                <input type="hidden" name="utm_medium" id="utm_medium" value="cpc">
+                                <input type="hidden" name="utm_campaign" id="utm_campaign" value="{{rs.title}} SOBO2">
+                                <input type="hidden" name="utm_term" id="utm_term" value="ruparel realty">
+                                <input type="hidden" name="utm_physical_location" id="utm_physical_location" value="9198375">
+                                <input type="hidden" name="utm_tragetid" id="utm_tragetid" value="kwd-491013889352">
+                                <input type="hidden" name="utm_target" id="utm_target" value="">
+                                <input type="hidden" name="utm_placement" id="utm_placement" value="">
+                                <input type="hidden" name="utm_adposition" id="utm_adposition" value="">
+                                <input type="hidden" id="organization_name" name="organization_name">
+                                <button type="submit" class="btn micro-form-btn submitBtn" id="submitBtn" style="margin-top:10px;margin-bottom:10px">Get Instant Call Back</button>
+                                <div><span class="errorMessage" id="errorMessage2" style="color: red; margin-left: 10px;"></span></div>
 
-                    </form>
+                            </form>
+
+                        </div>
+
+                    </div>
+                    <!--Privacy Policy LINK-->
+                    <!--<small class="modal-call-btn bg-white">-->
+                    <!--CONTACT NO-->
+                    <a href="tel:+91{{rs.cuntact_no}}" aria-label="Contact No." class="popcallbtn modal-call-btn d-block" style="padding: 0.5rem 1rem;"><i class="fa-solid fa-phone"></i> +91{{rs.cuntact_no}}</a>
+
+                    <!--</small> -->
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.0/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- gallery JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-lightbox/0.2.12/slick-lightbox.min.js"></script>
-    <script src="{%  static '' %}assets/js/custom.js"></script>
-    <script src="{%  static '' %}assets/js/meta_name.js"></script>
+
+    <!--DOWNLOAD BROCHURE BUTTON START-->
+    <div class="download-brochure">
+        <div class="desk_brochure">
+            <a class="enqModal" href="#" data-form="md" data-title="Download brochure" data-btn="Download now" data-enquiry="Download Brochure Sticky Desktop" data-redirect="brochure" data-redirect-file="brochure.pdf" data-toggle="modal" data-target="#enqModal">
+                        <img src="{% static '' %}assets/img/brochure_icon_n1.gif" loading="lazy">
+                    </a>
+        </div>
+        <div class="mob_brochure">
+            <a class="enqModal" href="#" data-form="md" data-title="Download brochure" data-btn="Download now" data-enquiry="Download Brochure Sticky Mobile" data-redirect="brochure" data-redirect-file="brochure.pdf" data-toggle="modal" data-target="#enqModal">
+                        <img src="{% static '' %}assets/img/brochure_icon_mob_n1.gif" loading="lazy">
+                    </a>
+        </div>
+    </div>
+    <!--COOKIES CODE START-->
+    <style>
+        .cookiealert {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            margin: 0 !important;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            border-radius: 0;
+            transform: translateY(100%);
+            transition: all 500ms ease-out;
+            color: #ecf0f1;
+            background: #212327;
+        }
+
+        .cookiealert.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0%);
+            transition-delay: 1000ms;
+        }
+
+        .cookiealert a {
+            text-decoration: underline
+        }
+
+        .cookiealert .acceptcookies {
+            margin-left: 10px;
+            vertical-align: baseline;
+        }
+    </style>
+    <script>
+        (function() {
+            "use strict";
+
+            var cookieAlert = document.querySelector(".cookiealert");
+            var acceptCookies = document.querySelector(".acceptcookies");
+
+            if (!cookieAlert) {
+                return;
+            }
+
+            cookieAlert.offsetHeight;
+
+            // Show the alert if we cant find the "acceptCookies" cookie
+            if (!getCookie("acceptCookies")) {
+                cookieAlert.classList.add("show");
+            }
+
+            // When clicking on the agree button, create a 1 year
+            // cookie to remember user's choice and close the banner
+            acceptCookies.addEventListener("click", function() {
+                setCookie("acceptCookies", true, 365);
+                cookieAlert.classList.remove("show");
+
+                // dispatch the accept event
+                window.dispatchEvent(new Event("cookieAlertAccept"))
+            });
+
+            // Cookie functions from w3schools
+            function setCookie(cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname) {
+                var name = cname + "=";
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) === ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) === 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+        })();
+    </script>
+    <!--COOKIES CODE END-->
+    <!-- Start of Async Drift Code -->
+    <script defer="defer">
+        var executed = true;
+        var h1tag = "{{rs.title}}";
+        window.onscroll = function() {
+            var addressSection = document.querySelector('#address_section');
+            if (executed && addressSection) { // <- Added addressSection check
+                addressSection.insertAdjacentHTML('afterbegin', `
+
+       
+                `);
+                executed = false;
+            }
+        };
+    </script>
+    <!-- Onload start -->
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.js-gallery').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                arrows: true,
-                fade: false,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                adaptiveHeight: true,
-                prevArrow: '<span class="gallery-arrow mod-prev"><i class="fas fa-arrow-left"></i></span>',
-                nextArrow: '<span class="gallery-arrow mod-next"><i class="fas fa-arrow-right"></i></span>',
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            centerMode: true,
-                            centerPadding: '0px',
-                            slidesToShow: 4
-                        }
-                    },
-                    {
-                        breakpoint: 980,
-                        settings: {
-                            centerMode: true,
-                            centerPadding: '0px',
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            centerMode: false,
-                            centerPadding: '0px',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-            });
-            $('.js-gallery').slickLightbox({
-                src: 'src',
-                itemSelector: '.js-gallery-popup img',
-                background: 'rgba(0, 0, 0, .7)'
+            $("input[name='modal_my_mobile2']").focusout(function() {
+                $(".mobileconcat").val('+' + $("#country_code").val() + $(this).val());
             });
 
-            $('#slick1').slick({
-                rows: 2,
-                dots: false,
-                arrows: true,
-                prevArrow: '<span class="amenities-arrow mod-prev"><i class="fas fa-arrow-left"></i></span>',
-                nextArrow: '<span class="amenities-arrow mod-next"><i class="fas fa-arrow-right"></i></span>',
-                infinite: true,
-                speed: 300,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            centerMode: true,
-                            centerPadding: '0px',
-                            slidesToShow: 4
-                        }
-                    },
-                    {
-                        breakpoint: 980,
-                        settings: {
-                            centerMode: true,
-                            centerPadding: '0px',
-                            slidesToShow: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        row: 1,
-                        settings: {
-                            centerMode: true,
-                            centerPadding: '0px',
-                            slidesToShow: 1
-                        }
-                    }
-                ]
-
+            // on country name field change
+            $("select[name='country_name']").focusout(function() {
+                $(".mobileconcat").val('+' + $("#country_code").val() + $(this).siblings("input[name='modal_my_mobile2']").val());
             });
-
+            $('select.my_country_name').change(function() {
+                var capacityValue = $("option:selected", this).data('contry_code');
+                $('.operations-supplierCapacity').val(capacityValue);
+            });
+            // Split Form Name into First name and Last Name
+            $("input[name='fname']").focusout(function() {
+                var name = $(this).val();
+                var first_name = name.substr(0, name.indexOf(' '));
+                var last_name = name.substr(name.indexOf(' ') + 1);
+                $("input[name='first_name']").val(first_name);
+                $("input[name='last_name']").val(last_name);
+            });
         });
-        $(document).ready(function() {
-    $(".moreBtn").click(function() {
-        var button = $(this);
-        var target = button.data('target');
-        var isReadMore = button.html().includes('Read more');
-        var newHtml = isReadMore ? 'Read less <i class="fa fa-chevron-up"></i>' : 'Read more <i class="fa fa-chevron-down"></i>';
-        button.html(newHtml);
-        $(".moreText[data-hit='more" + target + "']").slideToggle(500);
-    });
-});
-
     </script>
-<style>
-  .error-msg { color: red; font-size: 12px; display: none; }
-  input.invalid { border: 2px solid red; }
-  input.valid { border: 2px solid green; }
-</style>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    let n1 = Math.floor(Math.random() * 10) + 1;
-    let n2 = Math.floor(Math.random() * 10) + 1;
-
-    document.getElementById("num1").innerText = n1;
-    document.getElementById("num2").innerText = n2;
-
-    document.getElementById("main-popup").addEventListener("submit", function(e) {
-        let answer = parseInt(document.getElementById("captchaInput").value);
-        if(answer !== n1 + n2){
-            e.preventDefault();
-            document.getElementById("captchaError").style.display = "block";
-        } else {
-            document.getElementById("captchaError").style.display = "none";
-        }
-    });
-});
-</script>
-
-
-    <!-- JavaScript for interactivity -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-
-<script>
-  const toggleBtn = document.getElementById("menu-toggle");
-  const nav = document.getElementById("navbarNav");
-
-  toggleBtn.addEventListener("click", () => {
-    nav.classList.toggle("show");
-  });
-</script>
+    <script type="text/javascript">
+        var chatbotApiInput = {
+            home_url: "{{rs.website_link}}",
+            gclid: "Cj0KCQjw9obIBhCAARIsAGHm1mSbURPCzcEtC9RT6eAxuwvC_j_MCyl3iDQMO9eg3EcXkhOIncFlAr4aAr0gEALw_wcB",
+            utm_source: "google",
+            utm_medium: "cpc",
+            utm_campaign: "{{rs.title}} SOBO2",
+            utm_term: "ruparel realty",
+            utm_physical_location: "9198375",
+            utm_tragetid: "kwd-491013889352",
+            utm_target: "",
+            utm_placement: "",
+            utm_adposition: "",
+            fbclid: "",
+            builder: "Ruparel Realty",
+            project: "{{rs.title}}",
+            source: "Microsite Chat Icon",
+            lead_source: "chatbot",
+            ip: "150.107.16.195",
+            imagepath: "/assets/img/chatbot/",
+            leadcoversion: "hbpushleads",
+            desktoptimer: 10000,
+            mobiletimer: 10000,
+            device: "Desktop",
+        };
+        var timer = 0;
+    </script>
 
 
+    <script>
+        $('form#pardotForm').submit(function(e) {
+            $(this).children('button[type=submit]').attr('disabled', 'disabled');
+            $(this).children('input[type=submit]').attr('disabled', 'disabled');
+        });
+    </script>
 
 
-<!-- Add this script -->
-<script>
-  function toggleReadMore(btn) {
-    const moreText = btn.previousElementSibling.querySelector(".moreText");
-    if (moreText.style.display === "inline" || moreText.style.display === "") {
-      moreText.style.display = "none";
-      btn.textContent = "Read More";
-    } else {
-      moreText.style.display = "inline";
-      btn.textContent = "Read Less";
-    }
-  }
-
-</script>
-
-<script>
- var enquireModal = document.getElementById('enquire-modal')
-enquireModal.addEventListener('show.bs.modal', function (event) {
-  var button = event.relatedTarget
-  var recipient = button.getAttribute('data-bs-whatever')
-  var recipient = button ? button.getAttribute('data-bs-whatever') : null;
-  modalTitle.textContent = recipient || "Enquire Now"
-  
-})
-
-
-</script>
-
-<!-- Optional: Input Digit Limiter -->
-<script>
-  function limitDigits(element, maxLength) {
-    if (element.value.length > maxLength) {
-      element.value = element.value.slice(0, maxLength);
-    }
-  }
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".nav-link");
-
-  window.addEventListener("scroll", () => {
-    let current = "";
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop - 120; // navbar height adjust
-      if (window.scrollY >= sectionTop) {
-        current = section.getAttribute("id");
-      }
-    });
-
-    navLinks.forEach((link) => {
-      link.classList.remove("active");
-      if (link.getAttribute("href") === "#" + current) {
-        link.classList.add("active");
-      }
-    });
-  });
-});
-</script>
-
-</script>
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-window.addEventListener('load', function() {
-if(window.location.href.includes('/thank-you/')){
-gtag('event', 'conversion', {
-      'send_to': 'AW-17120889442/gSutCL-HkdAaEOKU8OM_'});
-  }
-if(window.location.pathname == '/'){
-gtag('event', 'conversion', {
-      'send_to': 'AW-17120889442/cilvCJrgkNAaEOKU8OM_'});
-  }
-  })
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    // Random numbers for captcha
-    let num1 = Math.floor(Math.random() * 10) + 1;
-    let num2 = Math.floor(Math.random() * 10) + 1;
-    document.getElementById("captchaNum1").innerText = num1;
-    document.getElementById("captchaNum2").innerText = num2;
-
-    // Form validation
-    document.getElementById("preRegisterForm").addEventListener("submit", function(e) {
-        let userAnswer = parseInt(document.getElementById("captchaAnswer").value);
-        if (userAnswer !== num1 + num2) {
-            e.preventDefault();
-            document.getElementById("captchaError").style.display = "block";
-        } else {
-            document.getElementById("captchaError").style.display = "none";
-        }
-    });
-});
-</script>
-
-
+    <script>
+        $(document).ready(function() {
+            $('#blockimg').removeClass('blockimg');
+        });
+    </script>
+    
+    <script src="{% static '' %}assets/js/jquery.min.js"></script>
+    <script src="{% static '' %}assets/js/chatv25.js"></script>
+    <script defer src="{% static '' %}assets/js/app1_min.js"></script>
 </body>
 
 </html>
-
 {% endfor %}
