@@ -28,6 +28,7 @@ class Setting(models.Model):
     site_address= models.CharField(max_length=1150,blank=True,null=True)
     googletagmanager= models.CharField(max_length=1150,blank=True,null=True)
     privacy_policy = RichTextField(blank=True,null=True)
+
     
     
     def __str__(self):

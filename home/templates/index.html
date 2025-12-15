@@ -104,8 +104,7 @@
    <section class="section shadow-sm lazyload" id="pricing">
         <span class="section-link"></span>
        <h2 class="head text-capitalize">{{ welcome.title }} Pricing and Carpet Area</h2>
-            <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-12">
                     <table class="table table-striped table-borderless border micro-price-table table-pricing for-desktop">
                         <thead>
                             <tr>
@@ -191,19 +190,6 @@
 
                     </table>
                 </div>
-                <div class="col-md-4">
-                    <span class="head text-capitalize mobile-only">Costsheet & Pricing Details of {{welcome.title}}</span>
-                    <a href="#" class="text-decoration-none enqModal" data-form="lg" data-title="Send me costing details" data-btn="Send Now" data-enquiry="Complete Costing Details" data-toggle="modal" data-target="#enqModal">
-                        <div class="at-property-item shadow-sm border border-grey new-padding">
-                            <div class="at-property-img lazyloaded" data-expand="-1"><img alt="costing sheet" data-sizes="auto" class="w-100 lazyautosizes ls-is-cached lazyloaded ls-inview" sizes="304px" src="{% static '' %}assets/img/costing.jpg">
-                                <div class="at-property-overlayer"></div> <span class="btn btn-default at-property-btn">Enquire Now</span> </div>
-                            <div class="new-bt">
-                                <div class="at-property-dis effetGradient new-border">Download Costing Details</div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
     </section>
 <!-- PRICING END HERE -->
 
@@ -296,6 +282,7 @@
             </button>
         </div>
     </section>
+
 <!-- AMENITIES END HERE -->
 
 
@@ -485,8 +472,7 @@
     <section class="section shadow-sm lazyloaded" id="sitevisit">
         <span class="section-link"></span>
         <span class="head text-capitalize">Virtual Tour Request</span>
-        <a href="#" class="enqModal" data-form="lg" data-title="Virtual Site Visit" data-btn="Start Tour" data-enquiry="Virtual Site Visit
-    " data-redirect="virtualtour" data-toggle="modal" data-target="#enqModal">
+        <a href="#" class="enqModal" data-form="lg" data-title="Virtual Site Visit" data-btn="Start Tour" data-enquiry="Virtual Site Visit" data-redirect="virtualtour" data-toggle="modal" data-target="#enqModal">
             <div class="at-property-item my-2 pt-md-0">
                 <div class="at-property-img vsv-img lazyloaded" data-expand="-1">
                     <div class="d-block">
@@ -507,7 +493,6 @@
 <!-- VIRTUAL SITE VISIT END-->
 
 <!-- DEVELOPER AND RERA START HERE -->
-    {% for rs in about_us %}
     <section class="section shadow-sm lazyload" id="developer">
 
         <!-- LOGO -->
@@ -518,6 +503,7 @@
                 style="max-width: 100%; height: 65px; display: inline-block;">
         </div>
 
+        {% for rs in about_us %}
         <!-- ABOUT HEADING -->
         <div class="row">
             <div class="col-md-8">
@@ -536,6 +522,7 @@
 
         <!-- ABOUT DETAILS -->
         <p>{{ rs.details }}</p>
+        {% endfor %}
 
         <!-- RERA BLOCK -->
         <span class="d-block section-heading-sub1 text-capitalize">RERA Information</span>
@@ -564,7 +551,6 @@
 
 
     </section>
-    {% endfor %}
 
 
         {% for rs in reraaditional %}
@@ -584,13 +570,13 @@
             </ul>
         <b>Disclaimer:</b>
         {{rs.Disclaimer}}<hr>
-        <p style="text-align:center;">Copyright &copy; 2025 | <a aria-label="About Terms & Conditions" href="terms-conditions.php">Terms & Conditions</a> | <a aria-label="About Privacy Policy" href="{% url 'privacy-policy' %}">Privacy Policy</a> | <a aria-label="About Cookies Policy" href="cookies-policy.php">Cookies Policy</a> </p>
+        <p style="text-align:center;">Copyright &copy; 2025 | <a aria-label="About Privacy Policy" href="{% url 'privacy-policy' %}">Privacy Policy |</a></p>
         </small>
         </section>
         {% endfor %}
 
 
-    </main>
+</main>
 
 <style>
     .action-icon img {
